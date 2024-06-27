@@ -49,7 +49,7 @@ A brief description of your project.
 
 2. **Create a Conda environment**:
     ```bash
-    conda create --name targetome python=3.x
+    conda create --name targetome
     ```
 
 3. **Activate the Conda environment**:
