@@ -64,6 +64,7 @@ def conduct_enrichment_top_n(df, n, x=20):
     df_e = df_e.sort_values(by="Fold Enrichment", ascending=False)
     # get the top x pathways (set to 20 as a default)
     df_e = df_e.iloc[:x]
+    # saves enrichment as CSV
     df_e.to_csv("Enrichment.csv")
     return df_e
 
