@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+from tkinter import ttk
 import pandas as pd
 import requests
 import matplotlib.pyplot as plt
@@ -53,31 +54,35 @@ def create_gui():
     root = tk.Tk()
     root.title("Enrichment Analysis")
 
-    # Create and place the input fields
-    tk.Label(root, text="Targetome File").grid(row=0, column=0)
+    # Apply a modern theme
+    style = ttk.Style(root)
+    style.theme_use('clam')
+    # Create and place the input fields with padding
+    ttk.Label(root, text="Targetome File").grid(row=0, column=0, padx=10, pady=10, sticky='E')
     global targetome_entry
-    targetome_entry = tk.Entry(root, width=50)
-    targetome_entry.grid(row=0, column=1)
-    tk.Button(root, text="Browse", command=lambda: select_file(targetome_entry)).grid(row=0, column=2)
+    targetome_entry = ttk.Entry(root, width=50)
+    targetome_entry.grid(row=0, column=1, padx=10, pady=10)
+    ttk.Button(root, text="Browse", command=lambda: select_file(targetome_entry)).grid(row=0, column=2, padx=10,
+                                                                                       pady=10)
 
-    tk.Label(root, text="Affinity File").grid(row=1, column=0)
+    ttk.Label(root, text="Affinity File").grid(row=1, column=0, padx=10, pady=10, sticky='E')
     global affinity_entry
-    affinity_entry = tk.Entry(root, width=50)
-    affinity_entry.grid(row=1, column=1)
-    tk.Button(root, text="Browse", command=lambda: select_file(affinity_entry)).grid(row=1, column=2)
+    affinity_entry = ttk.Entry(root, width=50)
+    affinity_entry.grid(row=1, column=1, padx=10, pady=10)
+    ttk.Button(root, text="Browse", command=lambda: select_file(affinity_entry)).grid(row=1, column=2, padx=10, pady=10)
 
-    tk.Label(root, text="n (int or list)").grid(row=2, column=0)
+    ttk.Label(root, text="n (int or list)").grid(row=2, column=0, padx=10, pady=10, sticky='E')
     global n_entry
-    n_entry = tk.Entry(root, width=50)
-    n_entry.grid(row=2, column=1)
+    n_entry = ttk.Entry(root, width=50)
+    n_entry.grid(row=2, column=1, padx=10, pady=10)
 
-    tk.Label(root, text="Drug Name").grid(row=3, column=0)
+    ttk.Label(root, text="Drug Name").grid(row=3, column=0, padx=10, pady=10, sticky='E')
     global drug_entry
-    drug_entry = tk.Entry(root, width=50)
-    drug_entry.grid(row=3, column=1)
+    drug_entry = ttk.Entry(root, width=50)
+    drug_entry.grid(row=3, column=1, padx=10, pady=10)
 
-    # Create and place the Run button
-    tk.Button(root, text="Run Enrichment", command=run_enrichment).grid(row=4, columnspan=3)
+    # Create and place the Run button with padding
+    ttk.Button(root, text="Run Enrichment", command=run_enrichment).grid(row=4, columnspan=3, pady=20)
 
     # Run the GUI loop
     root.mainloop()

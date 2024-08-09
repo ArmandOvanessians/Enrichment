@@ -64,6 +64,7 @@ def conduct_enrichment_top_n(df, n, x=20):
     df_e = df_e.sort_values(by="Fold Enrichment", ascending=False)
     # get the top x pathways (set to 20 as a default)
     df_e = df_e.iloc[:x]
+    df_e.to_csv("Enrichment.csv")
     return df_e
 
 def plot_enrichment(df, n, drug):
@@ -90,7 +91,7 @@ def plot_enrichment(df, n, drug):
     sns.despine(left=True, bottom=True)  # Remove the top and right borders for a cleaner look
     plt.tight_layout()
     plt.savefig(f"top{n}_{drug}.png")
-    plt.show()
+    #plt.show()
     return 0
 
 # # Parameters inputted by the users
